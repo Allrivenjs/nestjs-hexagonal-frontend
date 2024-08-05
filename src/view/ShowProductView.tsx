@@ -8,7 +8,7 @@ import {RootState} from "../store/store.ts";
 import { useParams } from 'react-router-dom';
 import {findProductById, updateUnitsOnProduct} from "../store/productsSlice.ts";
 import {formatPrice} from "../shared/formatPrice.ts";
-import {PurchaseModal} from "../transaction/components/PurchaseModal.tsx";
+import {PurchaseModal} from "../transaction/components";
 
 export const ShowProductView = () => {
     const { id } = useParams<{ id: string }>(); // Obtener el parámetro id como string
@@ -18,7 +18,6 @@ export const ShowProductView = () => {
     const product = useAppSelector((state: RootState) => state.products.productById);
 
     useEffect(() => {
-        console.log('id', id);
         if (id) {
             dispatch(findProductById(Number(id))); // Despachar la acción con el ID convertido a número
         }

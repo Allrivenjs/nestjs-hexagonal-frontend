@@ -1,30 +1,114 @@
-# React + TypeScript + Vite
+# Frontend Developer Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Structure
+The project structure has been set up for you. Below is an overview of the folders and their purposes:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+├───public
+└───src
+    ├───assets
+    ├───layout
+    ├───lib
+    │   ├───Product
+    │   │   ├───application
+    │   │   ├───domain
+    │   │   │   ├───entity
+    │   │   │   └───ports
+    │   │   │       ├───inbound
+    │   │   │       └───outbound
+    │   │   └───infrastructure
+    │   └───Transaction
+    │       ├───application
+    │       ├───domain
+    │       │   ├───entity
+    │       │   └───ports
+    │       │       ├───inbound
+    │       │       └───outbound
+    │       └───infrastructure
+    ├───products
+    │   ├───components
+    │   └───models
+    ├───router
+    ├───shared
+    │   └───axios
+    ├───store
+    ├───styles
+    ├───transaction
+    │   ├───components
+    │   └───models
+    └───view
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Folder Explanation
+
+- **public**: Contains static assets like `index.html`.
+- **src**: Main source folder.
+    - **assets**: Contains images, fonts, and other static assets.
+    - **layout**: Contains layout components for the application.
+    - **lib**: Contains library code and modules.
+        - **Product**: Contains product-related code.
+            - **application**: Application layer for product-related services.
+            - **domain**: Domain layer for product-related logic.
+                - **entity**: Domain entities for products.
+                - **ports**: Interfaces for product-related communication.
+                    - **inbound**: Inbound ports for product-related use cases.
+                    - **outbound**: Outbound ports for product-related use cases.
+            - **infrastructure**: Infrastructure layer for product-related persistence.
+        - **Transaction**: Contains transaction-related code.
+            - **application**: Application layer for transaction-related services.
+            - **domain**: Domain layer for transaction-related logic.
+                - **entity**: Domain entities for transactions.
+                - **ports**: Interfaces for transaction-related communication.
+                    - **inbound**: Inbound ports for transaction-related use cases.
+                    - **outbound**: Outbound ports for transaction-related use cases.
+            - **infrastructure**: Infrastructure layer for transaction-related persistence.
+    - **products**: Contains product-related components and models.
+        - **components**: UI components for products.
+        - **models**: Data models for products.
+    - **router**: Contains routing configurations.
+    - **shared**: Contains shared utilities and modules.
+        - **axios**: Axios configurations and instances.
+    - **store**: Contains state management (Redux or Vuex) configurations.
+    - **styles**: Contains global and component-specific styles.
+    - **transaction**: Contains transaction-related components and models.
+        - **components**: UI components for transactions.
+        - **models**: Data models for transactions.
+    - **view**: Contains view components for different pages.
+
+## Installation
+
+1. Clone the repository:
+```sh
+git clone https://github.com/Allrivenjs/nestjs-hexagonal-frontend.git
+```
+2. Navigate to the project directory:
+```sh 
+cd nestjs-hexagonal-frontend
+```
+3. Install dependencies:
+```sh 
+npm install 
+```
+4.Create a `.env` file in the root directory and add the following environment variables:
+```sh 
+cp .env.example .env
+```
+5. Start the development server:
+```bash 
+  npm run dev
+```
+
+## Screenshots
+
+### Products Page
+![Products Page](./public/assets/list-products.png)
+
+### Product Details Page
+![Product Details Page](./public/assets/show-product.png)
+
+### Transactions Page
+![Transactions Page](./public/assets/resumen-pay-and-payment.png)
+![Transactions Page](./public/assets/resumen-pay-and-payment-2.png)
+
+### Resume Page
+![Resume Page](./public/assets/resumen-payment.png)

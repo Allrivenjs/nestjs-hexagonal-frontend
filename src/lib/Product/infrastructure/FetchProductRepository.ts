@@ -8,7 +8,6 @@ export const createFetchProductRepository = (): ProductRepository => {
     return {
         getAll: async () => {
             const request = await axiosService.get<ResponseRequest<ProductEntity[]>>('/product');
-            console.log(request);
             return request.data.data;
         },
     };

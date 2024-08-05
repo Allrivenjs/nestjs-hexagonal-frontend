@@ -1,3 +1,18 @@
+import {Product} from "../../products/models/Product.ts";
+
+export interface TransactionResponse {
+    transactionId: number;
+    transactionNumber: string;
+    status: string;
+    amount: number;
+    date: Date;
+    numberUnits: number;
+    product: Product;
+    customer: Customer;
+    card: Card;
+    delivery: Delivery;
+}
+
 
 export interface Transaction {
     amount: number;
@@ -5,6 +20,7 @@ export interface Transaction {
     customer: Customer;
     card: Card;
     date: Date;
+    delivery: Delivery;
     numberUnits: number;
 }
 
@@ -16,11 +32,18 @@ export interface Card {
     cvc: string;
     card_holder: string;
     installments: number;
+    type: string;
 }
 
 export interface Customer {
     name: string;
     email: string;
     phone: string;
+}
+
+export interface Delivery {
+    city: string;
     address: string;
+    zipCode: string;
+    state: string;
 }
