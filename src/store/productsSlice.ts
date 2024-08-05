@@ -30,13 +30,18 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         findProductById(state: Draft<ProductsState>, action: PayloadAction<number>) {
-            console.log(state.products);
-            console.log("findProductById", state.products.find(product => product.productId === action.payload));
            state.productById = state.products.find(product => product.productId === action.payload) || null;
         },
         resetAndSetProducts(state: Draft<ProductsState>, action: PayloadAction<Product[]>) {
             state.products = action.payload;
-        }
+        },
+        updateUnitsOnProduct(state: Draft<ProductsState>, action: PayloadAction<{ productId: number, units: number }>) {
+            const product = state.products.find(product => product.productId === action.payload.productId);
+            if (product) {
+                product.unitsOnOrder = action.payload.units;
+                state.productById = product;
+            }
+        },
     },
     extraReducers: builder => {
         builder
@@ -55,5 +60,5 @@ const productsSlice = createSlice({
     }
 });
 
-export const { findProductById, resetAndSetProducts } = productsSlice.actions;
+export const { findProductById, resetAndSetProducts, updateUnitsOnProduct } = productsSlice.actions;
 export default productsSlice.reducer;

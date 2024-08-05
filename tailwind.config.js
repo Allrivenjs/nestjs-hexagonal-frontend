@@ -6,8 +6,8 @@ export default {
     "extend": {},
   },
   plugins: [
-    // eslint-disable-next-line no-undef
-    require('@tailwindcss/aspect-ratio')
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
   ],
 }
 

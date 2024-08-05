@@ -5,4 +5,5 @@ export interface Product {
     imageUrl: string;
     unitPrice: number;
     unitsInStock: number;
+    unitsOnOrder?: number;
 }
