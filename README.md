@@ -3,6 +3,8 @@
 ## Project Structure
 The project structure has been set up for you. Below is an overview of the folders and their purposes:
 
+[preview online](https://audiotranscription.cc/products)
+
 ```
 ├───public
 └───src
